@@ -1,0 +1,1 @@
++*.css +*.js -ad.doubleclick.net/* -mime:application/foobar

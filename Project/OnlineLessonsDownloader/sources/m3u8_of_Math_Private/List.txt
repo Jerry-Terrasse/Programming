@@ -1,0 +1,8 @@
+#6:
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5560_1/5560_1_20180628212225.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5561_1/5561_1_20180628212225.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5562_1/5562_1_20180628212225.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5563_1/5563_1_20180628212225.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5564_1/5564_1_20180628212225.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5565_1/5565_1_20180628212226.m3u8
+http://live3.aijianzi.com/record/aijianzi/2018-06-28/5566_1/5566_1_20180628212226.m3u8

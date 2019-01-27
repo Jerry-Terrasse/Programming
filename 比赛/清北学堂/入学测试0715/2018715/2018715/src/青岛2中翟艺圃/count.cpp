@@ -1,0 +1,184 @@
+#include<iostream>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+char a[5][5];
+int x[200];
+int main()
+{
+	freopen("count.in","r",stdin);
+	freopen("count.out","w",stdout);
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			cin>>a[i][j];
+		}
+	}
+	int js=0;
+	int ans1=0,ans2=0;
+	x[a[1][1]-'0'-16]++;
+	x[a[1][2]-'0'-16]++;
+	x[a[1][3]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[2][1]-'0'-16]++;
+	x[a[2][2]-'0'-16]++;
+	x[a[2][3]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[3][1]-'0'-16]++;
+	x[a[3][2]-'0'-16]++;
+	x[a[3][3]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[1][1]-'0'-16]++;
+	x[a[2][1]-'0'-16]++;
+	x[a[3][1]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[1][2]-'0'-16]++;
+	x[a[2][2]-'0'-16]++;
+	x[a[3][2]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[1][3]-'0'-16]++;
+	x[a[2][3]-'0'-16]++;
+	x[a[3][3]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[1][1]-'0'-16]++;
+	x[a[2][2]-'0'-16]++;
+	x[a[3][3]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	x[a[1][3]-'0'-16]++;
+	x[a[2][2]-'0'-16]++;
+	x[a[3][1]-'0'-16]++;
+	for(int i=1;i<=26;i++)
+	{
+		if(x[i]!=0)
+		{
+			js++;
+		}
+		x[i]=0;
+	}
+	if(js==1)
+	{
+		ans1++;
+	}
+	if(js==2)
+	{
+		ans2++;
+	}
+	js=0;
+	cout<<ans1<<endl<<ans2;
+	fclose(stdin);
+	fclose(stdout);
+	return 0;
+}

@@ -1,0 +1,39 @@
+#include<iostream>
+#define ll long long
+#define MAXN 1000000010
+#define H 1000000007
+using namespace std;
+ll n=0,ans=0,C=0;
+inline ll pow(ll,ll);
+int main()
+{
+  int i=1;
+  cin>>n;
+  if(!n)
+  {
+  	cout<<0<<endl;
+  	return 0;
+	}
+  ans=pow(2,n-1);
+  ans*=n-2;
+  ans%=H;
+  ans++;
+  ans%=H;
+  cout<<ans<<endl;
+	return 0;
+}
+inline ll pow(ll a,ll b)
+{
+	ll ans=1;
+	for(;b;b>>=1)
+	{
+		if(b&1)
+		{
+			ans*=a;
+			ans%=H;
+		}
+		a*=a;
+		a%=H;
+	}
+	return ans;
+}

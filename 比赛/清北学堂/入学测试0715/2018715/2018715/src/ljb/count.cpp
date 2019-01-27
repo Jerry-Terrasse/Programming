@@ -1,0 +1,141 @@
+#include<cstdio>
+#include<algorithm>
+#include<cstring>
+#include<cmath>
+#include<iostream>
+using namespace std;
+char s[3][3],team[5][2];
+int ans1,ans2,bj;
+int main()
+{
+	freopen("count.in","r",stdin);
+	freopen("count.out","w",stdout);
+	int i,j;
+	for(i=0;i<=2;i++)
+		for(j=0;j<=2;j++)
+			cin>>s[i][j];
+	if(s[0][0]==s[0][1]&&s[0][1]==s[0][2])ans1++;
+	if(s[1][0]==s[1][1]&&s[1][1]==s[1][2])ans1++;
+	if(s[2][0]==s[2][1]&&s[2][1]==s[2][2])ans1++;
+	if(s[0][0]==s[1][0]&&s[1][0]==s[2][0])ans1++;
+	if(s[0][1]==s[1][1]&&s[1][1]==s[2][1])ans1++;
+	if(s[0][2]==s[1][2]&&s[1][2]==s[2][2])ans1++;
+	if(s[0][2]==s[1][1]&&s[1][1]==s[2][0])ans1++;
+	cout<<ans1<<endl;
+	for(i=0;i<=2;i++)
+		if(s[i][0]==s[i][1]&&s[i][1]!=s[i][2]||s[i][0]==s[i][2]&&s[i][1]!=s[i][2]||s[i][0]!=s[i][1]&&s[i][1]==s[i][2])
+		{
+			if(s[i][0]==s[i][1])bj=2;
+			if(s[i][0]==s[i][2])bj=1;
+			if(s[i][1]==s[i][2])bj=0;
+			if(ans2==0)
+			{
+				ans2++;
+				team[ans2][0]=s[i][bj];
+				team[ans2][1]=s[i][(bj+1)%3];
+			}
+			else
+			{
+				int f=1;
+				for(j=1;j<=ans2;j++)
+				if(team[j][0]==s[i][bj]&&team[j][1]==s[i][(bj+1)%3]||s[i][(bj+1)%3]==team[j][0]&&team[j][1]==s[i][bj])
+				{
+					f=0;
+					break;
+				}
+				if(f==1)
+				{
+					ans2++;
+					team[ans2][0]=s[i][bj];
+					team[ans2][1]=s[i][(bj+1)%3];
+				}
+			}
+		}
+	for(i=0;i<=2;i++)
+		if(s[0][i]==s[1][i]&&s[1][i]!=s[2][i]||s[0][i]==s[2][i]&&s[1][i]!=s[2][i]||s[0][i]!=s[1][i]&&s[1][i]==s[2][i])
+		{
+			if(s[0][i]==s[1][i])bj=2;
+			if(s[0][i]==s[2][i])bj=1;
+			if(s[1][i]==s[2][i])bj=0;
+			if(ans2==0)
+			{
+				ans2++;
+				team[ans2][0]=s[bj][i];
+				team[ans2][1]=s[(bj+1)%3][i];
+			}
+			else
+			{
+				int f=1;
+				for(j=1;j<=ans2;j++)
+				if(team[j][0]==s[bj][i]&&team[j][1]==s[(bj+1)%3][i]||s[(bj+1)%3][i]==team[j][0]&&team[j][1]==s[bj][i])
+				{
+					f=0;
+					break;
+				}
+				if(f==1)
+				{
+					ans2++;
+					team[ans2][0]=s[bj][i];
+					team[ans2][1]=s[(bj+1)%3][i];
+				}
+			}
+		}
+	if(s[1][1]==s[2][2]&&s[1][1]!=s[0][0]||s[2][2]==s[0][0]&&s[1][1]!=s[0][0]||s[0][0]==s[2][2]&&s[0][0]!=s[1][1])
+	{
+		if(s[1][1]==s[0][0])bj=2;
+		if(s[0][0]==s[2][2])bj=1;
+		if(s[1][1]==s[2][2])bj=0;
+		if(ans2==0)
+		{
+			ans2++;
+			team[ans2][0]=s[bj][bj];
+			team[ans2][1]=s[(bj+1)%3][(bj+1)%3];
+		}
+		else
+		{
+			int f=1;
+			for(j=1;j<=ans2;j++)
+			if(team[j][0]==s[bj][bj]&&team[j][1]==s[(bj+1)%3][(bj+1)%3]||s[(bj+1)%3][(bj+1)%3]==team[j][0]&&team[j][1]==s[bj][bj])
+			{
+				f=0;
+				break;
+			}
+			if(f==1)
+			{
+				ans2++;
+				team[ans2][0]=s[bj][bj];
+				team[ans2][1]=s[(bj+1)%3][(bj+1)%3];
+			}
+		}
+	}
+	if(s[0][2]==s[1][1]&&s[1][1]!=s[2][0]||s[0][2]==s[2][0]&&s[0][2]!=s[1][1]||s[2][0]==s[1][1]&&s[0][2]!=s[2][0])
+	{
+		if(s[1][1]==s[0][2])bj=2;
+		if(s[0][2]==s[2][0])bj=1;
+		if(s[1][1]==s[2][0])bj=0;
+		if(ans2==0)
+		{
+			ans2++;
+			team[ans2][0]=s[bj][2-bj];
+			team[ans2][1]=s[(bj+1)%3][2-(bj+1)%3];
+		}
+		else
+		{
+			int f=1;
+			for(j=1;j<=ans2;j++)
+			if(team[j][0]==s[bj][2-bj]&&team[j][1]==s[(bj+1)%3][2-(bj+1)%3]||s[(bj+1)%3][2-(bj+1)%3]==team[j][0]&&team[j][1]==s[bj][2-bj])
+			{
+				f=0;
+				break;
+			}
+			if(f==1)
+			{
+				ans2++;
+				team[ans2][0]=s[bj][2-bj];
+				team[ans2][1]=s[(bj+1)%3][2-(bj+1)%3];
+			}
+		}
+	}
+	cout<<ans2;
+	return 0;
+}
